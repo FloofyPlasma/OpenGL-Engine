@@ -1,7 +1,6 @@
-#include <iostream>
+#include <cstdio>
 
-int main(int argc, char const *argv[])
-{
-    printf("Hello, world!");
-    return 0;
+int main(int argc, char const *argv[]) {
+  printf("Hello, world!");
+  return 0;
 }
