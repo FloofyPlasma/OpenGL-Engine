@@ -7,7 +7,6 @@
 #include <SDL3/SDL_opengl.h>
 #include <cstdlib>
 
-
 int main(int argc, char const *argv[])
 {
     if (!SDL_Init(SDL_INIT_VIDEO))
@@ -69,25 +68,25 @@ int main(int argc, char const *argv[])
         while (SDL_PollEvent(&Event))
         {
             ShowDemoWindow = true;
-            
+
             ImGui_ImplSDL3_ProcessEvent(&Event);
 
             if (Event.type == SDL_EVENT_QUIT)
             {
                 ShouldQuit = true;
             }
-
-            ImGui_ImplOpenGL3_NewFrame();
-            ImGui_ImplSDL3_NewFrame();
-            ImGui::NewFrame();
-            ImGui::ShowDemoWindow(&ShowDemoWindow);
-            ImGui::Render();
-            glViewport(0, 0, static_cast<int>(IO.DisplaySize.x), static_cast<int>(IO.DisplaySize.y));
-            glClearColor(0, 0, 0, 1);
-            glClear(GL_COLOR_BUFFER_BIT);
-            ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
-            SDL_GL_SwapWindow(Window);
         }
+
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplSDL3_NewFrame();
+        ImGui::NewFrame();
+        ImGui::ShowDemoWindow(&ShowDemoWindow);
+        ImGui::Render();
+        glViewport(0, 0, static_cast<int>(IO.DisplaySize.x), static_cast<int>(IO.DisplaySize.y));
+        glClearColor(0, 0, 0, 1);
+        glClear(GL_COLOR_BUFFER_BIT);
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        SDL_GL_SwapWindow(Window);
     }
 
     ImGui_ImplOpenGL3_Shutdown();
